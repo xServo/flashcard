@@ -1,6 +1,8 @@
-what is red
-a color
-what is the meaning of life
-42 
-ahh
-ah
+2 + 2
+4
+these are sample questions
+edit flashcards to make your own
+what color is the sky
+blue
+what is the basic unit of life
+cell
