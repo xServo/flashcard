@@ -17,6 +17,10 @@ while line:
     line = fr.readline()
 fr.close()
 
+combined = list(zip(front, back))
+random.shuffle(combined)
+front[:], back[:] = zip(*combined)
+
 os.system("clear")
 operation = input("1. Edit flashcards\n2. Study \n")
 
@@ -61,14 +65,20 @@ while operation == "1":
         fa.write("\n" + write + "\n") 
 
 # study cards
+cnt = 0
 while operation == "2":
     os.system("clear")
-    index = random.randint(0, len(front) - 1)
-    question = front[index]
-    answer = back[index]
+    question = front[cnt]
+    answer = back[cnt]
     print(question)
     input("\nPress enter to see answer. ")
     os.system("clear")
     print(f"{question}:")
     print(answer)
     input("\nPress enter to see new question. ")
+    cnt += 1
+    if cnt >= len(front):
+        combined = list(zip(front, back))
+        random.shuffle(combined)
+        front[:], back[:] = zip(*combined)
+        cnt = 0
